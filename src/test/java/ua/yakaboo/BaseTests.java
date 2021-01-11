@@ -4,9 +4,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class FirstTest {
+public class BaseTests {
     @Test
-    public void firstTest() {
+    public void HomePageIsDisplayed() {
         System.setProperty("webdriver.chrome.driver", "/Users/Berezhman/Downloads/chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
 
