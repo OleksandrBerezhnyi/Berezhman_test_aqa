@@ -3,9 +3,10 @@ package ua.yakaboo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.util.ArrayList;
 
 public class BaseTests extends WebDriverSettings {
 
@@ -17,28 +18,28 @@ public class BaseTests extends WebDriverSettings {
 
     @Test
     public void signInWithValidUser() throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        WebElement loginPage = driver.findElement(By.id("customer_menu"));
-        js.executeScript("arguments[0].click();",loginPage );
-//        driver.findElement(By.id("customer_menu")).click();
-        Thread.sleep(3000);
+        driver.findElement(By.id("customer_menu")).click();
+        Thread.sleep(2000);
         WebElement loginPopup = driver.findElement(By.id("modal-login"));
         Assert.assertTrue(loginPopup.isDisplayed(), "login popup is not displayed");
 
         driver.findElement(By.id("email")).sendKeys("oleksandr.berezhnyi@gravit.io");
         driver.findElement(By.id("pass")).sendKeys("123456");
-        driver.findElement(By.xpath(".//div[@class='modal-footer']//button[contains(@id,'login')]")).click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", driver.findElement(By.xpath(".//div[@class='modal-footer']//button[contains(@id,'login')]")));
         Thread.sleep(2000);
+
         String firstName = driver.findElement(By.xpath(".//span[@data-customer='firstname']")).getText();
         Assert.assertEquals(firstName, "Вітаємо, Oleksandr");
     }
+
     @Test
-    public void checkMailElementsOnHomePage() {
+    public void checkMainElementsOnHomePage() {
         WebElement searchField = driver.findElement(By.xpath(".//input[@class='input-text']"));
         Assert.assertTrue(searchField.isDisplayed(), "Search field is not displayed");
 
         WebElement searchButton = driver.findElement(By.id("search_mini_form_submit"));
-        Assert.assertTrue(searchButton.isDisplayed(), "Search button is not displayed");
+        Assert.assertTrue(searchButton.isEnabled(), "Search button is not clickable");
 
         WebElement wishList = driver.findElement(By.linkText("Бажані"));
         Assert.assertTrue(wishList.isDisplayed(), "Wishlist icon is not displayed");
@@ -61,10 +62,12 @@ public class BaseTests extends WebDriverSettings {
 
     @Test
     public void checkElementsInTheHeader() throws InterruptedException {
-      WebElement logoSrc = driver.findElement(By.xpath(".//div[@class='i-logo']//img[contains(@src,'logo_book_cup.png')]"));
+        WebElement logoSrc = driver.findElement(By.xpath(".//div[@class='i-logo']//img[contains(@src,'logo_book_cup.png')]"));
         Assert.assertTrue(logoSrc.isDisplayed(), "Logo is not displayed");
 
-        driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'promotions')]")).click();
+        WebElement promotionsButton = driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'promotions')]"));
+        Actions actions = new Actions(driver);
+        actions.click(promotionsButton).build().perform();
         Thread.sleep(2000);
         WebElement discountsPage = driver.findElement(By.xpath(".//article[@class='col-main']"));
         Assert.assertTrue(discountsPage.isDisplayed(), "Discounts page does not open");
@@ -94,14 +97,13 @@ public class BaseTests extends WebDriverSettings {
         Assert.assertTrue(contactPage.isDisplayed(), "Contact page does not open");
         driver.navigate().back();
 
-//        driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'blog')]")).click();
-//        String m
-//        driver.switchTo().newWindow(SafariDriver.WindowType.TAB);
-//        Thread.sleep(2000);
-//        WebElement blogPage = driver.findElement(By.xpath(".//div[@class='elementor-image']//a[contains(@href,'blog')]"));
-//        Assert.assertTrue(blogPage.isDisplayed(), "Blog page does not open");
-//        driver.switchTo().window(originalWindow);
-
+        driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'blog')]")).click();
+        ArrayList<String> windows = new ArrayList<> (driver.getWindowHandles());
+        driver.switchTo().window(windows.get(1));
+        Thread.sleep(2000);
+        WebElement blogPage = driver.findElement(By.xpath(".//div[@class='elementor-image']//a[contains(@href,'blog')]"));
+        Assert.assertTrue(blogPage.isDisplayed(), "Blog page does not open");
+        driver.switchTo().window(windows.get(0));
     }
 }
 
