@@ -64,7 +64,7 @@ public class BaseTests extends WebDriverSettings {
     public void checkElementsInTheHeader() throws InterruptedException {
         WebElement logoSrc = driver.findElement(By.xpath(".//div[@class='i-logo']//img[contains(@src,'logo_book_cup.png')]"));
         Assert.assertTrue(logoSrc.isDisplayed(), "Logo is not displayed");
-
+        Thread.sleep(2000);
         WebElement attachedWebElement = driver.findElement(By.className("grv-dialog-host"));
         WebElement shadowRootElement = (WebElement)((JavascriptExecutor)driver).executeScript("return arguments[0].shadowRoot", attachedWebElement);
         shadowRootElement.findElement(By.cssSelector("button.sub-dialog-btn.block_btn")).click();
