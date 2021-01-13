@@ -2,11 +2,11 @@ package ua.yakaboo;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.util.ArrayList;
 
 public class BaseTests extends WebDriverSettings {
 
@@ -65,6 +65,10 @@ public class BaseTests extends WebDriverSettings {
         WebElement logoSrc = driver.findElement(By.xpath(".//div[@class='i-logo']//img[contains(@src,'logo_book_cup.png')]"));
         Assert.assertTrue(logoSrc.isDisplayed(), "Logo is not displayed");
 
+        WebElement attachedWebElement = driver.findElement(By.className("grv-dialog-host"));
+        WebElement shadowRootElement = (WebElement)((JavascriptExecutor)driver).executeScript("return arguments[0].shadowRoot", attachedWebElement);
+        shadowRootElement.findElement(By.cssSelector("button.sub-dialog-btn.block_btn")).click();
+
         WebElement promotionsButton = driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'promotions')]"));
         Actions actions = new Actions(driver);
         actions.click(promotionsButton).build().perform();
@@ -97,13 +101,26 @@ public class BaseTests extends WebDriverSettings {
         Assert.assertTrue(contactPage.isDisplayed(), "Contact page does not open");
         driver.navigate().back();
 
+        String secondTab = "Книжковий блог Yakaboo — Головна сторінка";
         driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'blog')]")).click();
-        ArrayList<String> windows = new ArrayList<> (driver.getWindowHandles());
-        driver.switchTo().window(windows.get(1));
+        switchWindowByTitle(secondTab, driver);
         Thread.sleep(2000);
         WebElement blogPage = driver.findElement(By.xpath(".//div[@class='elementor-image']//a[contains(@href,'blog')]"));
         Assert.assertTrue(blogPage.isDisplayed(), "Blog page does not open");
-        driver.switchTo().window(windows.get(0));
+        switchWindowByTitle("Yakaboo — Інтернет-магазин книг, подарунків і дитячих товарів. Купити книги та подарунки по найкращим в Україні цінами.", driver);
+    }
+
+    public void switchWindowByTitle(String title, WebDriver driver) {
+        //will keep current window to switch back
+        String currentWindow = driver.getWindowHandle();
+        for (String winHandle : driver.getWindowHandles()) {
+            if (driver.switchTo().window(winHandle).getTitle().contains(title)) {
+                //This is the one you're looking for
+                break;
+            } else {
+                driver.switchTo().window(currentWindow);
+            }
+        }
     }
 }
 
