@@ -36,7 +36,7 @@ public class CommonTests extends BaseTests {
     @Test
     public void checkMainElementsOnHomePage() {
         WebElement searchField = driver.findElement(By.xpath(".//input[@class='input-text']"));
-        Assert.assertTrue(searchField.isDisplayed(), "Search field is not displayed");
+        Assert.assertEquals(searchField.getAttribute("placeholder"), "Пошук товарів", "Placeholder is not correct");
 
         WebElement searchButton = driver.findElement(By.id("search_mini_form_submit"));
         Assert.assertTrue(searchButton.isEnabled(), "Search button is not clickable");
