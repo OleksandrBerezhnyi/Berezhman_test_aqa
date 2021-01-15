@@ -11,14 +11,13 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithValidUser() throws InterruptedException {
-        driver.findElement(By.id("customer_menu")).click();
+        driver.findElement(By.xpath(".//a[@class='show-modal-login']")).click();
         Thread.sleep(2000);
-
-        WebElement loginPopup = driver.findElement(By.id("modal-login"));
+        WebElement loginPopup = driver.findElement(By.xpath(".//div[@id='modal-login']"));
         Assert.assertTrue(loginPopup.isDisplayed(), "login popup is not displayed");
 
-        driver.findElement(By.id("email")).sendKeys("oleksandr.berezhnyi@gravit.io");
-        driver.findElement(By.id("pass")).sendKeys("123456");
+        driver.findElement(By.xpath(".//input[contains(@name,'username')]")).sendKeys("oleksandr.berezhnyi@gravit.io");
+        driver.findElement(By.xpath(".//input[contains(@name,'password')]")).sendKeys("123456");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", driver.findElement(By.xpath(".//div[@class='modal-footer']//button[contains(@id,'login')]")));
         Thread.sleep(2000);
@@ -26,7 +25,6 @@ public class LoginTests extends BaseTests {
         String firstName = driver.findElement(By.xpath(".//span[@data-customer='firstname']")).getText();
         Assert.assertEquals(firstName, "Вітаємо, Oleksandr", "User name is not correct");
     }
-
 
     @Test
     public void signInWithEmptyFields() throws InterruptedException {
