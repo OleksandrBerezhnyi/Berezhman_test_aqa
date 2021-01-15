@@ -1,4 +1,4 @@
-package ua.yakaboo;
+package ua.yakaboo.Tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
