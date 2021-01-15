@@ -80,7 +80,6 @@ public class LoginTests extends BaseTests {
         driver.findElement(By.xpath(".//div[@class='modal-footer']//button[contains(@id,'login')]")).click();
         Thread.sleep(2000);
         String alertMessage = driver.findElement(By.xpath(".//div[@class='alert alert-error']")).getText();
-        System.out.println(alertMessage);
         Assert.assertEquals(alertMessage, "Невірний логін або пароль.", "Alert message is not correct");
     }
 }
