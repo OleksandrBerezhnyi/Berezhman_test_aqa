@@ -68,6 +68,7 @@ public class LoginTests extends BaseTests {
         alert.accept();
     }
 
+
     @Test
     public void signInWithInvalidCredentials() throws InterruptedException {
         driver.findElement(By.xpath(".//a[@class='show-modal-login']")).click();
