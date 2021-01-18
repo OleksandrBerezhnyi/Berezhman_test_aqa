@@ -1,4 +1,4 @@
-package ua.yakaboo.Tests;
+package ua.yakaboo.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ public class HomePageTest extends BaseTests {
     @Test
     public void homePageIsDisplayed() {
         String title = driver.getTitle();
-        Assert.assertTrue(title.equals("Yakaboo — Інтернет-магазин книг, подарунків і дитячих товарів. Купити книги та подарунки по найкращим в Україні цінами."));
+        Assert.assertEquals(title,("Yakaboo — Інтернет-магазин книг, подарунків і дитячих товарів. Купити книги та подарунки по найкращим в Україні цінами."));
     }
 
     @Test

@@ -1,4 +1,4 @@
-package ua.yakaboo.Tests;
+package ua.yakaboo.tests;
 
 import Utils.DriverHelper;
 import org.openqa.selenium.By;

@@ -1,4 +1,4 @@
-package ua.yakaboo.Pages;
+package ua.yakaboo.pages;
 
 public class HomePage {
 }

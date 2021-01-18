@@ -1,4 +1,4 @@
-package ua.yakaboo.Tests;
+package ua.yakaboo.tests;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
