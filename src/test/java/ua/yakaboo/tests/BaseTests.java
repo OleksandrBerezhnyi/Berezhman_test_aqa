@@ -1,19 +1,20 @@
 package ua.yakaboo.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import utils.driverUtils.DriverProvider;
+
+import static utils.PropertyReader.getProperty;
 
 public class BaseTests {
 
-    public ChromeDriver driver;
+    public WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("https://www.yakaboo.ua/");
+        driver = new DriverProvider().getDriver();
+        driver.get(getProperty("HOME_URL"));
     }
 
     @AfterMethod
