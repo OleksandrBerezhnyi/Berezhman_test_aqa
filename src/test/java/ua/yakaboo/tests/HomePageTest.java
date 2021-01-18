@@ -18,13 +18,13 @@ public class HomePageTest extends BaseTests {
         WebElement searchField = driver.findElement(By.xpath(".//input[@class='input-text']"));
         Assert.assertEquals(searchField.getAttribute("placeholder"), "Пошук товарів", "Placeholder is not correct");
 
-        WebElement searchButton = driver.findElement(By.id("search_mini_form_submit"));
+        WebElement searchButton = driver.findElement(By.xpath(".//button[contains(@class,'btn-search')]"));
         Assert.assertTrue(searchButton.isEnabled(), "Search button is not clickable");
 
-        WebElement wishList = driver.findElement(By.linkText("Бажані"));
+        WebElement wishList = driver.findElement(By.xpath(".//div[@class='wishlist-top']"));
         Assert.assertTrue(wishList.isDisplayed(), "Wishlist icon is not displayed");
 
-        WebElement cartItem = driver.findElement(By.xpath(".//div[@id='cart-top-items']//button[contains(@class,'btn')]"));
+        WebElement cartItem = driver.findElement(By.xpath(".//div[@class='cart-top']//button[contains(@class,'btn')]"));
         Assert.assertTrue(cartItem.isDisplayed(), "Cart icon is not displayed");
 
         WebElement promoSlider = driver.findElement(By.className("scroller"));

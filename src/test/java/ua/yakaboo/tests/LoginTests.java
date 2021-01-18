@@ -48,7 +48,6 @@ public class LoginTests extends BaseTests {
         Assert.assertTrue(loginPopup.isDisplayed(), "login popup is not displayed");
         driver.findElement(By.xpath(".//input[contains(@name,'password')]")).sendKeys("123456");
         driver.findElement(By.xpath(".//div[@class='modal-footer']//button[contains(@id,'login')]")).click();
-        Thread.sleep(1000);
         Alert alert = driver.switchTo().alert();
         String alertMessage = driver.switchTo().alert().getText();
         Assert.assertEquals(alertMessage, "Введіть телефон або e-mail.", "Alert message is not correct");
@@ -56,12 +55,12 @@ public class LoginTests extends BaseTests {
     }
 
     @Test
-    public void signInWithEmptyPasswordFields() throws InterruptedException {
+    public void signInWithEmptyPasswordField() throws InterruptedException {
         driver.findElement(By.xpath(".//a[@class='show-modal-login']")).click();
         Thread.sleep(2000);
         WebElement loginPopup = driver.findElement(By.xpath(".//div[@id='modal-login']"));
         Assert.assertTrue(loginPopup.isDisplayed(), "login popup is not displayed");
-        driver.findElement(By.xpath(".//input[contains(@name,'username')]")).sendKeys("oleksandr.berezhnyi@gravit.io");;
+        driver.findElement(By.xpath(".//input[contains(@name,'username')]")).sendKeys("oleksandr.berezhnyi@gravit.io");
         driver.findElement(By.xpath(".//div[@class='modal-footer']//button[contains(@id,'login')]")).click();
         Alert alert = driver.switchTo().alert();
         String alertMessage = driver.switchTo().alert().getText();
