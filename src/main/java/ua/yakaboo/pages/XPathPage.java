@@ -26,5 +26,5 @@ public class XPathPage {
     private WebElement promoSlider;
 
     @FindBy(xpath = ".//div[contains(@class,'modal_login')]//p[text()='Вхід на сайт']")
-    private WebElement loginPopup;
+    private WebElement loginPopupLabel;
 }
