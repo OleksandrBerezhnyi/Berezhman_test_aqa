@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class XPathPage {
+//    HOME WORK
     @FindBy(xpath = ".//div[@class='elementor-image']//a[contains(@href,'blog')]")
     private WebElement blogPage;
 
@@ -25,6 +26,6 @@ public class XPathPage {
     @FindBy(xpath = ".//div[@class='scroller']//ancestor::div[@class='easyslideslider-id']")
     private WebElement promoSlider;
 
-    @FindBy(xpath = ".//div[contains(@class,'modal_login')]//p[text()='Вхід на сайт']")
+    @FindBy(xpath = ".//p[text()='Вхід на сайт' or @id='loginLabel']")
     private WebElement loginPopupLabel;
 }
