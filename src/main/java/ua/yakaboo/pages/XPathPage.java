@@ -24,4 +24,7 @@ public class XPathPage {
 
     @FindBy(xpath = ".//div[@class='scroller']//ancestor::div[@class='easyslideslider-id']")
     private WebElement promoSlider;
+
+    @FindBy(xpath = ".//div[contains(@class,'modal_login')]//p[text()='Вхід на сайт']")
+    private WebElement loginPopup;
 }
