@@ -23,6 +23,9 @@ public class XPathPage {
     @FindBy(xpath = ".//article[@class='col-main']//following::div[@class='std']")
     private WebElement contactPage;
 
+    @FindBy(xpath = ".//div[@class='scroller']//ancestor::div[@class='easyslideslider-id']")
+    private WebElement promoSlider;
+
 
 
     

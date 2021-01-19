@@ -27,7 +27,7 @@ public class HomePageTest extends BaseTests {
         WebElement cartItem = driver.findElement(By.xpath(".//div[@class='cart-top']//button[contains(@class,'btn')]"));
         Assert.assertTrue(cartItem.isDisplayed(), "Cart icon is not displayed");
 
-        WebElement promoSlider = driver.findElement(By.xpath(".//div[contains(@class,'slider')]//div[@class='easyslideslider-id']"));
+        WebElement promoSlider = driver.findElement(By.xpath(".//div[@class='scroller']//ancestor::div[@class='easyslideslider-id']"));
         Assert.assertTrue(promoSlider.isDisplayed(), "Promo slider is not displayed");
 
         WebElement allCategories = driver.findElement(By.xpath(".//div[@class='side_center']//div[contains(@class,'all-categories')]"));
