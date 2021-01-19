@@ -27,16 +27,16 @@ public class HomePageTest extends BaseTests {
         WebElement cartItem = driver.findElement(By.xpath(".//div[@class='cart-top']//button[contains(@class,'btn')]"));
         Assert.assertTrue(cartItem.isDisplayed(), "Cart icon is not displayed");
 
-        WebElement promoSlider = driver.findElement(By.className("scroller"));
+        WebElement promoSlider = driver.findElement(By.xpath(".//div[contains(@class,'slider')]//div[@class='easyslideslider-id']"));
         Assert.assertTrue(promoSlider.isDisplayed(), "Promo slider is not displayed");
 
         WebElement allCategories = driver.findElement(By.xpath(".//div[@class='side_center']//div[contains(@class,'all-categories')]"));
         Assert.assertTrue(allCategories.isDisplayed(), "All Categories section is not displayed");
 
-        WebElement seoBlock = driver.findElement(By.className("cms-seo-block"));
+        WebElement seoBlock = driver.findElement(By.xpath(".//div[contains(@class,'seo-block')]"));
         Assert.assertTrue(seoBlock.isDisplayed(), "Seo Block section is not displayed");
 
-        WebElement socialNetworks = driver.findElement(By.xpath(".//div[@class='span2 cms-social']"));
+        WebElement socialNetworks = driver.findElement(By.xpath(".//div[contains(@class,'cms-social')]"));
         Assert.assertTrue(socialNetworks.isDisplayed(), "Social Networks section is not displayed");
     }
 }

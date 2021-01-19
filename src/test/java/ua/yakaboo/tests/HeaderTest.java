@@ -29,25 +29,25 @@ public class HeaderTest extends BaseTests {
 
         driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'about-us')]")).click();
         Thread.sleep(2000);
-        WebElement aboutUsPage = driver.findElement(By.xpath(".//article[@class='col-main']"));
+        WebElement aboutUsPage = driver.findElement(By.xpath(".//div[@class='line vertical']//preceding-sibling::div[@class='span10']"));
         Assert.assertTrue(aboutUsPage.isDisplayed(), "About Us page does not open");
         driver.navigate().back();
 
         driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'delivery')]")).click();
         Thread.sleep(2000);
-        WebElement deliveryPage = driver.findElement(By.xpath(".//article[@class='col-main']"));
+        WebElement deliveryPage = driver.findElement(By.xpath(".//article[@class='col-main']//child::div[@id='cms-content']"));
         Assert.assertTrue(deliveryPage.isDisplayed(), "Delivery page does not open");
         driver.navigate().back();
 
         driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'payment')]")).click();
         Thread.sleep(2000);
-        WebElement paymentPage = driver.findElement(By.xpath(".//article[@class='col-main']"));
+        WebElement paymentPage = driver.findElement(By.xpath(".//article[@class='col-main']//parent::div[contains(@class,'span10')]"));
         Assert.assertTrue(paymentPage.isDisplayed(), "Payment page does not open");
         driver.navigate().back();
 
         driver.findElement(By.xpath(".//ul[@class='cms-list']//a[contains(@href,'contact')]")).click();
         Thread.sleep(2000);
-        WebElement contactPage = driver.findElement(By.xpath(".//article[@class='col-main']"));
+        WebElement contactPage = driver.findElement(By.xpath(".//article[@class='col-main']//following::div[@class='std']"));
         Assert.assertTrue(contactPage.isDisplayed(), "Contact page does not open");
         driver.navigate().back();
 
