@@ -13,7 +13,7 @@ public class HeaderPage {
     private WebElement attachedWebElement;
 
     @FindBy(css = "button.sub-dialog-btn.block_btn")
-    private WebElement ShadowOkButton;
+    private WebElement shadowOkButton;
 
     @FindBy(xpath = ".//ul[@class='cms-list']//a[contains(@href,'promotions')]")
     private WebElement promotionsButton;

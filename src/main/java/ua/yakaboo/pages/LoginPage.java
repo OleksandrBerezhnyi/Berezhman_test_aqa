@@ -22,7 +22,7 @@ public class LoginPage {
     private WebElement loginButton;
 
     @FindBy(xpath = ".//span[@data-customer='firstname']")
-    private WebElement ProfileFirstName;
+    private WebElement profileFirstName;
 
     @FindBy(xpath = ".//div[@class='alert alert-error']")
     private WebElement alertMessage;

@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class XPathPage {
-//    HOME WORK
     @FindBy(xpath = ".//div[@class='elementor-image']//a[contains(@href,'blog')]")
     private WebElement blogPage;
 
