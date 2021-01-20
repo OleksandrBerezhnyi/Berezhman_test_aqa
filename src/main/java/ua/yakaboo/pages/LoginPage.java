@@ -1,5 +1,6 @@
 package ua.yakaboo.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,5 +30,28 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
+    }
+
+    public void fillEmailField(String userEmail) {
+        usernameField.clear();
+        usernameField.sendKeys(userEmail);
+    }
+
+    public void fillPasswordField(String userPassword) {
+        passwordField.clear();
+        passwordField.sendKeys(userPassword);
+    }
+
+    public void clickLoginButton() {
+        loginButton.click();
+    }
+
+    public void clickOpenLoginPopupButton() {
+        openLoginPopupButton.click();
+    }
+
+    public WebElement openLogin() {
+        clickLoginButton();
+        return loginPopup;
     }
 }
