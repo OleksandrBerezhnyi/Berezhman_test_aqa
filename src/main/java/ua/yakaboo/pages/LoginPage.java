@@ -1,10 +1,11 @@
 package ua.yakaboo.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static utils.Waits.waitSeconds;
 
 public class LoginPage {
     @FindBy(xpath = ".//a[@class='show-modal-login']")
@@ -44,14 +45,11 @@ public class LoginPage {
 
     public void clickLoginButton() {
         loginButton.click();
+        waitSeconds(3);
     }
 
     public void clickOpenLoginPopupButton() {
         openLoginPopupButton.click();
-    }
-
-    public WebElement openLogin() {
-        clickLoginButton();
-        return loginPopup;
+        waitSeconds(3);
     }
 }
