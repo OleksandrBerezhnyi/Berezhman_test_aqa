@@ -33,4 +33,36 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
+    public String getSearchFieldPlaceholder() {
+        return searchField.getAttribute("placeholder");
+    }
+
+    public boolean isSearchButtonEnabled() {
+        return searchButton.isEnabled();
+    }
+
+    public boolean isWishListButtonDisplayed() {
+        return wishListButton.isDisplayed();
+    }
+
+    public boolean isCartButtonDisplayed() {
+        return cartButton.isDisplayed();
+    }
+
+    public boolean isPromoSliderDisplayed() {
+        return promoSlider.isDisplayed();
+    }
+
+    public boolean isAllCategoriesSectionDisplayed() {
+        return allCategoriesSection.isDisplayed();
+    }
+
+    public boolean isSeoBlockSectionDisplayed() {
+        return seoBlockSection.isDisplayed();
+    }
+
+    public boolean isSocialNetworksDisplayed() {
+        return socialNetworks.isDisplayed();
+    }
 }

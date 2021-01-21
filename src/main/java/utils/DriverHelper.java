@@ -1,5 +1,6 @@
 package utils;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 
 public class DriverHelper {
@@ -14,4 +15,12 @@ public class DriverHelper {
             }
         }
     }
+
+    public static String getAlertText(WebDriver driver) {
+        Alert alert = driver.switchTo().alert();
+        String alertMessage = driver.switchTo().alert().getText();
+        alert.accept();
+        return alertMessage;
+    }
+
 }

@@ -1,5 +1,6 @@
 package ua.yakaboo.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +28,7 @@ public class LoginPage {
     private WebElement profileFirstName;
 
     @FindBy(xpath = ".//div[@class='alert alert-error']")
-    private WebElement alertMessage;
+    private WebElement loginPopupAlertMessage;
 
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -50,6 +51,24 @@ public class LoginPage {
 
     public void clickOpenLoginPopupButton() {
         openLoginPopupButton.click();
+        waitSeconds(3);
+    }
+
+    public boolean isLoginPopupDisplayed() {
+        return loginPopup.isDisplayed();
+    }
+
+    public String getFirstName() {
+        return profileFirstName.getText();
+    }
+
+    public String getLoginPopupAlertMessage() {
+        return loginPopupAlertMessage.getText();
+    }
+
+    public void clickLoginButtonWithJS(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", loginButton);
         waitSeconds(3);
     }
 }
