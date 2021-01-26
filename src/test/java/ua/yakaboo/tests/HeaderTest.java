@@ -41,8 +41,9 @@ public class HeaderTest extends BaseTests {
 
         String secondTab = "Книжковий блог Yakaboo — Головна сторінка";
         headerPage.waitBlogButtonToBeClickable(driver);
-        headerPage.clickBlogButton(driver);
+        headerPage.clickBlogButton();
         DriverHelper.switchWindowByTitle(secondTab, driver);
+
         Assert.assertTrue(headerPage.isBlogPageDisplayed(), "Blog page does not open");
         String mainTab = "Yakaboo — Інтернет-магазин книг, подарунків і дитячих товарів. Купити книги та подарунки по найкращим в Україні цінами.";
         DriverHelper.switchWindowByTitle(mainTab, driver);

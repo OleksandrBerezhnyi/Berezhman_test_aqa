@@ -22,5 +22,4 @@ public class DriverHelper {
         alert.accept();
         return alertMessage;
     }
-
 }

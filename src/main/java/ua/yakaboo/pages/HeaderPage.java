@@ -124,10 +124,8 @@ public class HeaderPage extends BasePage {
         waits.waitElementToBeClickableShort(blogButton);
     }
 
-    public void clickBlogButton(WebDriver driver) {
+    public void clickBlogButton() {
         blogButton.click();
-        Waits waits = new Waits(driver);
-        waits.waitVisibilityOfElementShort(blogPage);
     }
 
     public boolean isStoreLogoDisplayed() {

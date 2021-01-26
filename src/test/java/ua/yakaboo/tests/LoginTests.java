@@ -8,7 +8,6 @@ import utils.Waits;
 
 public class LoginTests extends BaseTests {
 
-
     @Test
     public void signInWithValidUser() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
