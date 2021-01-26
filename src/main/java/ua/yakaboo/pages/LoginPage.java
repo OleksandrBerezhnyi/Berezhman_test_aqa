@@ -1,14 +1,14 @@
 package ua.yakaboo.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import utils.Waits;
 
-import static utils.Waits.waitSeconds;
+import static utils.JSActions.clickButtonWithJS;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
+
     @FindBy(xpath = ".//a[@class='show-modal-login']")
     private WebElement openLoginPopupButton;
 
@@ -31,7 +31,7 @@ public class LoginPage {
     private WebElement loginPopupAlertMessage;
 
     public LoginPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void fillEmailField(String userEmail) {
@@ -46,12 +46,12 @@ public class LoginPage {
 
     public void clickLoginButton() {
         loginButton.click();
-        waitSeconds(3);
     }
 
-    public void clickOpenLoginPopupButton() {
+    public void clickOpenLoginPopupButton(WebDriver driver) {
         openLoginPopupButton.click();
-        waitSeconds(3);
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElement(usernameField, 3);
     }
 
     public boolean isLoginPopupDisplayed() {
@@ -67,8 +67,18 @@ public class LoginPage {
     }
 
     public void clickLoginButtonWithJS(WebDriver driver) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", loginButton);
-        waitSeconds(3);
+        clickButtonWithJS(driver, loginButton);
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElementShort(profileFirstName);
+    }
+
+    public void waitOpenLoginPopupButtonToBeClickable(WebDriver driver) {
+        Waits waits = new Waits(driver);
+        waits.waitElementToBeClickableShort(openLoginPopupButton);
+    }
+
+    public void waitLoginPopupAlertMessageToBeVisibility(WebDriver driver) {
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElementShort(loginPopupAlertMessage);
     }
 }

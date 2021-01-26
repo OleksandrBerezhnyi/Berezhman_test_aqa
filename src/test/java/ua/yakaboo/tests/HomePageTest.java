@@ -15,7 +15,6 @@ public class HomePageTest extends BaseTests {
     @Test
     public void checkMainElementsOnHomePage() {
         HomePage homePage = new HomePage(driver);
-
         Assert.assertEquals(homePage.getSearchFieldPlaceholder(), "Пошук товарів", "Placeholder is not correct");
         Assert.assertTrue(homePage.isSearchButtonEnabled(), "Search button is not clickable");
         Assert.assertTrue(homePage.isWishListButtonDisplayed(), "Wishlist icon is not displayed");

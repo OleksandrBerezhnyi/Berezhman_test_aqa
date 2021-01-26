@@ -3,9 +3,9 @@ package ua.yakaboo.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage extends BasePage {
+
     @FindBy(xpath = ".//input[@class='input-text']")
     private WebElement searchField;
 
@@ -31,7 +31,7 @@ public class HomePage {
     private WebElement socialNetworks;
 
     public HomePage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public String getSearchFieldPlaceholder() {
@@ -51,6 +51,7 @@ public class HomePage {
     }
 
     public boolean isPromoSliderDisplayed() {
+
         return promoSlider.isDisplayed();
     }
 

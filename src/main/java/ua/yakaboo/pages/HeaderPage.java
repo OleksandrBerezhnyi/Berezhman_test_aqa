@@ -6,11 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import utils.Waits;
 
-import static utils.Waits.waitSeconds;
+public class HeaderPage extends BasePage {
 
-public class HeaderPage {
     @FindBy(xpath = ".//div[@class='i-logo']//img[contains(@src,'logo_book_cup.png')]")
     private WebElement storeLogo;
 
@@ -56,44 +55,79 @@ public class HeaderPage {
     private WebElement blogPage;
 
     public HeaderPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
+    }
+
+    public void waitPromotionsButtonToBeClickable(WebDriver driver) {
+        Waits waits = new Waits(driver);
+        waits.waitElementToBeClickableShort(promotionsButton);
     }
 
     public void clickPromotionsButtonWithAction(WebDriver driver) {
         Actions actions = new Actions(driver);
         actions.click(promotionsButton).build().perform();
-        waitSeconds(3);
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElement(discountsPage, 3);
     }
 
     public void clickCancelButtonOnDialog(WebDriver driver) {
         WebElement shadowRootElement = (WebElement) ((JavascriptExecutor) driver).executeScript("return arguments[0].shadowRoot", attachedWebElement);
         shadowRootElement.findElement(shadowOkButton).click();
-        waitSeconds(3);
     }
 
-    public void clickAboutUsButton() {
+    public void waitAboutUsButtonToBeClickable(WebDriver driver) {
+        Waits waits = new Waits(driver);
+        waits.waitElementToBeClickableShort(aboutUsButton);
+    }
+
+    public void clickAboutUsButton(WebDriver driver) {
         aboutUsButton.click();
-        waitSeconds(3);
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElementShort(aboutUsPage);
     }
 
-    public void clickDeliveryButton() {
+    public void waitDeliveryButtonToBeClickable(WebDriver driver) {
+        Waits waits = new Waits(driver);
+        waits.waitElementToBeClickableShort(deliveryButton);
+    }
+
+    public void clickDeliveryButton(WebDriver driver) {
         deliveryButton.click();
-        waitSeconds(3);
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElementShort(deliveryPage);
     }
 
-    public void clickPaymentButton() {
+    public void waitPaymentButtonToBeClickable(WebDriver driver) {
+        Waits waits = new Waits(driver);
+        waits.waitElementToBeClickableShort(paymentButton);
+    }
+
+    public void clickPaymentButton(WebDriver driver) {
         paymentButton.click();
-        waitSeconds(3);
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElementShort(paymentPage);
     }
 
-    public void clickContactButton() {
+    public void waitContactButtonToBeClickable(WebDriver driver) {
+        Waits waits = new Waits(driver);
+        waits.waitElementToBeClickableShort(contactButton);
+    }
+
+    public void clickContactButton(WebDriver driver) {
         contactButton.click();
-        waitSeconds(3);
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElementShort(contactPage);
     }
 
-    public void clickBlogButton() {
+    public void waitBlogButtonToBeClickable(WebDriver driver) {
+        Waits waits = new Waits(driver);
+        waits.waitElementToBeClickableShort(blogButton);
+    }
+
+    public void clickBlogButton(WebDriver driver) {
         blogButton.click();
-        waitSeconds(3);
+        Waits waits = new Waits(driver);
+        waits.waitVisibilityOfElementShort(blogPage);
     }
 
     public boolean isStoreLogoDisplayed() {
