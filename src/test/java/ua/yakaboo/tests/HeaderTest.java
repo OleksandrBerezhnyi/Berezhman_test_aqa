@@ -19,6 +19,7 @@ public class HeaderTest extends BaseTests {
     public void checkElementsInTheHeader() throws InterruptedException {
         Assert.assertTrue(headerPage.isStoreLogoDisplayed(), "Logo is not displayed");
 
+        headerPage.waitAttachedWebElementToBePresence();
         headerPage.clickCancelButtonOnDialog(driver);
 
         headerPage.waitPromotionsButtonToBeClickable();
@@ -50,7 +51,6 @@ public class HeaderTest extends BaseTests {
         headerPage.waitBlogButtonToBeClickable(driver);
         headerPage.clickBlogButton();
         DriverHelper.switchWindowByTitle(secondTab, driver);
-
         Assert.assertTrue(headerPage.isBlogPageDisplayed(), "Blog page does not open");
         String mainTab = "Yakaboo — Інтернет-магазин книг, подарунків і дитячих товарів. Купити книги та подарунки по найкращим в Україні цінами.";
         DriverHelper.switchWindowByTitle(mainTab, driver);

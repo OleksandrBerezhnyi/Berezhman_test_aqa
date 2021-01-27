@@ -62,6 +62,10 @@ public class HeaderPage extends BasePage {
         waits.waitElementToBeClickableShort(promotionsButton);
     }
 
+    public void waitAttachedWebElementToBePresence() {
+        waits.waitPresenceOfElementShort(By.className("grv-dialog-host"));
+    }
+
     public void clickPromotionsButtonWithAction(WebDriver driver) {
         clickButtonWithAction(driver, promotionsButton);
         waits.waitVisibilityOfElement(discountsPage, 3);
