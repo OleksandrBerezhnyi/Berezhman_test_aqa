@@ -58,15 +58,12 @@ public class HeaderPage extends BasePage {
         super(driver);
     }
 
-    public void waitPromotionsButtonToBeClickable(WebDriver driver) {
-        Waits waits = new Waits(driver);
+    public void waitPromotionsButtonToBeClickable() {
         waits.waitElementToBeClickableShort(promotionsButton);
     }
 
     public void clickPromotionsButtonWithAction(WebDriver driver) {
-        Actions actions = new Actions(driver);
-        actions.click(promotionsButton).build().perform();
-        Waits waits = new Waits(driver);
+        clickButtonWithAction(driver, promotionsButton);
         waits.waitVisibilityOfElement(discountsPage, 3);
     }
 
@@ -76,51 +73,42 @@ public class HeaderPage extends BasePage {
     }
 
     public void waitAboutUsButtonToBeClickable(WebDriver driver) {
-        Waits waits = new Waits(driver);
         waits.waitElementToBeClickableShort(aboutUsButton);
     }
 
     public void clickAboutUsButton(WebDriver driver) {
         aboutUsButton.click();
-        Waits waits = new Waits(driver);
         waits.waitVisibilityOfElementShort(aboutUsPage);
     }
 
     public void waitDeliveryButtonToBeClickable(WebDriver driver) {
-        Waits waits = new Waits(driver);
         waits.waitElementToBeClickableShort(deliveryButton);
     }
 
     public void clickDeliveryButton(WebDriver driver) {
         deliveryButton.click();
-        Waits waits = new Waits(driver);
         waits.waitVisibilityOfElementShort(deliveryPage);
     }
 
     public void waitPaymentButtonToBeClickable(WebDriver driver) {
-        Waits waits = new Waits(driver);
         waits.waitElementToBeClickableShort(paymentButton);
     }
 
     public void clickPaymentButton(WebDriver driver) {
         paymentButton.click();
-        Waits waits = new Waits(driver);
         waits.waitVisibilityOfElementShort(paymentPage);
     }
 
     public void waitContactButtonToBeClickable(WebDriver driver) {
-        Waits waits = new Waits(driver);
         waits.waitElementToBeClickableShort(contactButton);
     }
 
     public void clickContactButton(WebDriver driver) {
         contactButton.click();
-        Waits waits = new Waits(driver);
         waits.waitVisibilityOfElementShort(contactPage);
     }
 
     public void waitBlogButtonToBeClickable(WebDriver driver) {
-        Waits waits = new Waits(driver);
         waits.waitElementToBeClickableShort(blogButton);
     }
 

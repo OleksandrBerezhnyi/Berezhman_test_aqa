@@ -1,6 +1,7 @@
 package ua.yakaboo.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.yakaboo.pages.LoginPage;
 import utils.DriverHelper;
@@ -8,9 +9,17 @@ import utils.Waits;
 
 public class LoginTests extends BaseTests {
 
+    private LoginPage loginPage;
+    private Waits waits;
+
+    @BeforeMethod
+    public void initLoginPage() {
+        loginPage = new LoginPage(driver);
+        waits = new Waits(driver);
+    }
+
     @Test
     public void signInWithValidUser() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
         Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
@@ -22,8 +31,6 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithEmptyFields() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        Waits waits = new Waits(driver);
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
         Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
@@ -34,8 +41,6 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithEmptyLoginField() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        Waits waits = new Waits(driver);
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
         Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
@@ -47,8 +52,6 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithEmptyPasswordField() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        Waits waits = new Waits(driver);
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
         Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
@@ -60,7 +63,6 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithInvalidCredentials() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
         Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");

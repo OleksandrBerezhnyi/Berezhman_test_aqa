@@ -60,7 +60,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean isSeoBlockSectionDisplayed() {
-        return seoBlockSection.isDisplayed();
+        return waits.isElementVisibilityShort(seoBlockSection);
     }
 
     public boolean isSocialNetworksDisplayed() {

@@ -1,20 +1,27 @@
 package ua.yakaboo.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.yakaboo.pages.HeaderPage;
 import utils.DriverHelper;
 
 public class HeaderTest extends BaseTests {
 
+    private HeaderPage headerPage;
+
+    @BeforeMethod
+    public void initHeaderPage() {
+        headerPage = new HeaderPage(driver);
+    }
+
     @Test
     public void checkElementsInTheHeader() throws InterruptedException {
-        HeaderPage headerPage = new HeaderPage(driver);
-
         Assert.assertTrue(headerPage.isStoreLogoDisplayed(), "Logo is not displayed");
+
         headerPage.clickCancelButtonOnDialog(driver);
 
-        headerPage.waitPromotionsButtonToBeClickable(driver);
+        headerPage.waitPromotionsButtonToBeClickable();
         headerPage.clickPromotionsButtonWithAction(driver);
         Assert.assertTrue(headerPage.isDiscountsPageDisplayed(), "Discounts page does not open");
         driver.navigate().back();

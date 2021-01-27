@@ -1,6 +1,7 @@
 package utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -91,5 +92,18 @@ public class Waits {
 
     public void waitElementToBeClickableLong(WebElement element) {
         waitElementToBeClickable(element, longTimeout);
+    }
+
+    public boolean isElementVisibility(WebElement element, int timeout) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            return wait.until(ExpectedConditions.visibilityOf(element)) != null;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean isElementVisibilityShort(WebElement element) {
+        return isElementVisibility(element, shortTimeout);
     }
 }

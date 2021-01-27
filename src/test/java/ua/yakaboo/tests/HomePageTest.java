@@ -1,10 +1,18 @@
 package ua.yakaboo.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.yakaboo.pages.HomePage;
 
 public class HomePageTest extends BaseTests {
+
+    private HomePage homePage;
+
+    @BeforeMethod
+    public void initHomePage() {
+        homePage = new HomePage(driver);
+    }
 
     @Test
     public void homePageIsDisplayed() {
@@ -14,7 +22,6 @@ public class HomePageTest extends BaseTests {
 
     @Test
     public void checkMainElementsOnHomePage() {
-        HomePage homePage = new HomePage(driver);
         Assert.assertEquals(homePage.getSearchFieldPlaceholder(), "Пошук товарів", "Placeholder is not correct");
         Assert.assertTrue(homePage.isSearchButtonEnabled(), "Search button is not clickable");
         Assert.assertTrue(homePage.isWishListButtonDisplayed(), "Wishlist icon is not displayed");

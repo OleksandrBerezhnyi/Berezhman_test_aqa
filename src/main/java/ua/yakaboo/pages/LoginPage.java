@@ -50,7 +50,6 @@ public class LoginPage extends BasePage {
 
     public void clickOpenLoginPopupButton(WebDriver driver) {
         openLoginPopupButton.click();
-        Waits waits = new Waits(driver);
         waits.waitVisibilityOfElement(usernameField, 3);
     }
 
@@ -68,17 +67,14 @@ public class LoginPage extends BasePage {
 
     public void clickLoginButtonWithJS(WebDriver driver) {
         clickButtonWithJS(driver, loginButton);
-        Waits waits = new Waits(driver);
         waits.waitVisibilityOfElementShort(profileFirstName);
     }
 
     public void waitOpenLoginPopupButtonToBeClickable(WebDriver driver) {
-        Waits waits = new Waits(driver);
         waits.waitElementToBeClickableShort(openLoginPopupButton);
     }
 
     public void waitLoginPopupAlertMessageToBeVisibility(WebDriver driver) {
-        Waits waits = new Waits(driver);
         waits.waitVisibilityOfElementShort(loginPopupAlertMessage);
     }
 }
