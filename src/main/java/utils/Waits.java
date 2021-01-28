@@ -94,6 +94,19 @@ public class Waits {
         waitElementToBeClickable(element, longTimeout);
     }
 
+    public boolean isElementToBeClickable(WebElement element, int timeout) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            return wait.until(ExpectedConditions.elementToBeClickable(element)) != null;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean isElementToBeClickableShort(WebElement element) {
+        return isElementToBeClickable(element, shortTimeout);
+    }
+
     public boolean isElementVisibility(WebElement element, int timeout) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeout);

@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
     private WebElement openLoginPopupButton;
 
     @FindBy(xpath = ".//div[@id='modal-login']")
-    private WebElement loginPopup;
+    public WebElement loginPopup;
 
     @FindBy(xpath = ".//input[contains(@name,'username')]")
     private WebElement usernameField;
@@ -21,7 +21,7 @@ public class LoginPage extends BasePage {
     private WebElement passwordField;
 
     @FindBy(xpath = ".//div[@class='modal-footer']//button[contains(@id,'login')]")
-    private WebElement loginButton;
+    public WebElement loginButton;
 
     @FindBy(xpath = ".//span[@data-customer='firstname']")
     private WebElement profileFirstName;
@@ -43,17 +43,9 @@ public class LoginPage extends BasePage {
         passwordField.sendKeys(userPassword);
     }
 
-    public void clickLoginButton() {
-        loginButton.click();
-    }
-
     public void clickOpenLoginPopupButton(WebDriver driver) {
         openLoginPopupButton.click();
         waits.waitVisibilityOfElement(usernameField, 3);
-    }
-
-    public boolean isLoginPopupDisplayed() {
-        return loginPopup.isDisplayed();
     }
 
     public String getFirstName() {

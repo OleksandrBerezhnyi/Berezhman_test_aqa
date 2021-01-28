@@ -19,10 +19,10 @@ public class LoginTests extends BaseTests {
     }
 
     @Test
-    public void signInWithValidUser() throws InterruptedException {
+    public void signInWithValidUser() {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
-        Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
+        Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
         loginPage.fillPasswordField("123456");
         loginPage.clickLoginButtonWithJS(driver);
@@ -33,8 +33,8 @@ public class LoginTests extends BaseTests {
     public void signInWithEmptyFields() throws InterruptedException {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
-        Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
-        loginPage.clickLoginButton();
+        Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
+        loginPage.loginButton.click();
         waits.waitAlertPresentShort();
         Assert.assertEquals(DriverHelper.getAlertText(driver), "Введіть телефон або e-mail.", "Alert message is not correct");
     }
@@ -43,9 +43,9 @@ public class LoginTests extends BaseTests {
     public void signInWithEmptyLoginField() throws InterruptedException {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
-        Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
+        Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillPasswordField("123456");
-        loginPage.clickLoginButton();
+        loginPage.loginButton.click();
         waits.waitAlertPresentShort();
         Assert.assertEquals(DriverHelper.getAlertText(driver), "Введіть телефон або e-mail.", "Alert message is not correct");
     }
@@ -54,9 +54,9 @@ public class LoginTests extends BaseTests {
     public void signInWithEmptyPasswordField() throws InterruptedException {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
-        Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
+        Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
-        loginPage.clickLoginButton();
+        loginPage.loginButton.click();
         waits.waitAlertPresentShort();
         Assert.assertEquals(DriverHelper.getAlertText(driver), "Input password", "Alert message is not correct");
     }
@@ -65,10 +65,10 @@ public class LoginTests extends BaseTests {
     public void signInWithInvalidCredentials() throws InterruptedException {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
         loginPage.clickOpenLoginPopupButton(driver);
-        Assert.assertTrue(loginPage.isLoginPopupDisplayed(), "login popup is not displayed");
+        Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
         loginPage.fillPasswordField("1234567");
-        loginPage.clickLoginButton();
+        loginPage.loginButton.click();
         loginPage.waitLoginPopupAlertMessageToBeVisibility(driver);
         Assert.assertEquals(loginPage.getLoginPopupAlertMessage(), "Невірний логін або пароль.", "Alert message is not correct");
     }

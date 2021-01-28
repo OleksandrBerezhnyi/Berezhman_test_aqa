@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 public class HeaderPage extends BasePage {
 
     @FindBy(xpath = ".//div[@class='i-logo']//img[contains(@src,'logo_book_cup.png')]")
-    private WebElement storeLogo;
+    public WebElement storeLogo;
 
     @FindBy(className = "grv-dialog-host")
     private WebElement attachedWebElement;
@@ -20,37 +20,37 @@ public class HeaderPage extends BasePage {
     private WebElement promotionsButton;
 
     @FindBy(xpath = ".//article[@class='col-main']")
-    private WebElement discountsPage;
+    public WebElement discountsPage;
 
     @FindBy(xpath = ".//ul[@class='cms-list']//a[contains(@href,'about-us')]")
     private WebElement aboutUsButton;
 
     @FindBy(xpath = ".//div[@class='line vertical']//preceding-sibling::div[@class='span10']")
-    private WebElement aboutUsPage;
+    public WebElement aboutUsPage;
 
     @FindBy(xpath = ".//ul[@class='cms-list']//a[contains(@href,'delivery')]")
     private WebElement deliveryButton;
 
     @FindBy(xpath = ".//article[@class='col-main']//child::div[@id='cms-content']")
-    private WebElement deliveryPage;
+    public WebElement deliveryPage;
 
     @FindBy(xpath = ".//ul[@class='cms-list']//a[contains(@href,'payment')]")
     private WebElement paymentButton;
 
     @FindBy(xpath = ".//article[@class='col-main']//parent::div[contains(@class,'span10')]")
-    private WebElement paymentPage;
+    public WebElement paymentPage;
 
     @FindBy(xpath = ".//ul[@class='cms-list']//a[contains(@href,'contact')]")
     private WebElement contactButton;
 
     @FindBy(xpath = ".//article[@class='col-main']//following::div[@class='std']")
-    private WebElement contactPage;
+    public WebElement contactPage;
 
     @FindBy(xpath = ".//ul[@class='cms-list']//a[contains(@href,'blog')]")
     private WebElement blogButton;
 
     @FindBy(xpath = ".//div[@class='elementor-image']//a[contains(@href,'blog')]")
-    private WebElement blogPage;
+    public WebElement blogPage;
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -116,33 +116,5 @@ public class HeaderPage extends BasePage {
 
     public void clickBlogButton() {
         blogButton.click();
-    }
-
-    public boolean isStoreLogoDisplayed() {
-        return storeLogo.isDisplayed();
-    }
-
-    public boolean isDiscountsPageDisplayed() {
-        return discountsPage.isDisplayed();
-    }
-
-    public boolean isAboutUsPageDisplayed() {
-        return aboutUsPage.isDisplayed();
-    }
-
-    public boolean isDeliveryPageDisplayed() {
-        return deliveryPage.isDisplayed();
-    }
-
-    public boolean isPaymentPageDisplayed() {
-        return paymentPage.isDisplayed();
-    }
-
-    public boolean isContactPageDisplayed() {
-        return contactPage.isDisplayed();
-    }
-
-    public boolean isBlogPageDisplayed() {
-        return blogPage.isDisplayed();
     }
 }
