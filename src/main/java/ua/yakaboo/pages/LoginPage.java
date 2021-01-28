@@ -61,7 +61,7 @@ public class LoginPage extends BasePage {
         waits.waitVisibilityOfElementShort(profileFirstName);
     }
 
-    public void waitOpenLoginPopupButtonToBeClickable(WebDriver driver) {
+    public void waitOpenLoginPopupButtonToBeClickable() {
         waits.waitElementToBeClickableShort(openLoginPopupButton);
     }
 

@@ -17,7 +17,7 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithValidUser() {
-        loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
+        loginPage.waitOpenLoginPopupButtonToBeClickable();
         loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
@@ -28,7 +28,7 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithEmptyFields() throws InterruptedException {
-        loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
+        loginPage.waitOpenLoginPopupButtonToBeClickable();
         loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.loginButton.click();
@@ -38,7 +38,7 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithEmptyLoginField() throws InterruptedException {
-        loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
+        loginPage.waitOpenLoginPopupButtonToBeClickable();
         loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillPasswordField("123456");
@@ -49,7 +49,7 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithEmptyPasswordField() throws InterruptedException {
-        loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
+        loginPage.waitOpenLoginPopupButtonToBeClickable();
         loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
@@ -60,7 +60,7 @@ public class LoginTests extends BaseTests {
 
     @Test
     public void signInWithInvalidCredentials() throws InterruptedException {
-        loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
+        loginPage.waitOpenLoginPopupButtonToBeClickable();
         loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
