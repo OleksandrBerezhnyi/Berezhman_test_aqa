@@ -20,7 +20,7 @@ public class HeaderTest extends BaseTests {
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.storeLogo), "Logo is not displayed");
 
         headerPage.waitAttachedWebElementToBePresence();
-        headerPage.clickCancelButtonOnDialog(driver);
+        headerPage.clickCancelButtonOnDialog();
 
         headerPage.waitPromotionsButtonToBeClickable();
         headerPage.clickPromotionsButtonWithAction();
@@ -28,27 +28,27 @@ public class HeaderTest extends BaseTests {
         driver.navigate().back();
 
         headerPage.waitAboutUsButtonToBeClickable();
-        headerPage.clickAboutUsButton(driver);
+        headerPage.clickAboutUsButton();
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.aboutUsPage), "About Us page does not open");
         driver.navigate().back();
 
-        headerPage.waitDeliveryButtonToBeClickable(driver);
-        headerPage.clickDeliveryButton(driver);
+        headerPage.waitDeliveryButtonToBeClickable();
+        headerPage.clickDeliveryButton();
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.deliveryPage), "Delivery page does not open");
         driver.navigate().back();
 
-        headerPage.waitPaymentButtonToBeClickable(driver);
-        headerPage.clickPaymentButton(driver);
+        headerPage.waitPaymentButtonToBeClickable();
+        headerPage.clickPaymentButton();
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.paymentPage), "Payment page does not open");
         driver.navigate().back();
 
-        headerPage.waitContactButtonToBeClickable(driver);
-        headerPage.clickContactButton(driver);
+        headerPage.waitContactButtonToBeClickable();
+        headerPage.clickContactButton();
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.contactPage), "Contact page does not open");
         driver.navigate().back();
 
         String secondTab = "Книжковий блог Yakaboo — Головна сторінка";
-        headerPage.waitBlogButtonToBeClickable(driver);
+        headerPage.waitBlogButtonToBeClickable();
         headerPage.clickBlogButton();
         DriverHelper.switchWindowByTitle(secondTab, driver);
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.blogPage), "Blog page does not open");

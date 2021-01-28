@@ -69,7 +69,7 @@ public class HeaderPage extends BasePage {
         waits.waitVisibilityOfElement(discountsPage, 3);
     }
 
-    public void clickCancelButtonOnDialog(WebDriver driver) {
+    public void clickCancelButtonOnDialog() {
         WebElement shadowRootElement = (WebElement) ((JavascriptExecutor) driver).executeScript("return arguments[0].shadowRoot", attachedWebElement);
         shadowRootElement.findElement(shadowOkButton).click();
     }
@@ -78,39 +78,39 @@ public class HeaderPage extends BasePage {
         waits.waitElementToBeClickableShort(aboutUsButton);
     }
 
-    public void clickAboutUsButton(WebDriver driver) {
+    public void clickAboutUsButton() {
         aboutUsButton.click();
         waits.waitVisibilityOfElementShort(aboutUsPage);
     }
 
-    public void waitDeliveryButtonToBeClickable(WebDriver driver) {
+    public void waitDeliveryButtonToBeClickable() {
         waits.waitElementToBeClickableShort(deliveryButton);
     }
 
-    public void clickDeliveryButton(WebDriver driver) {
+    public void clickDeliveryButton() {
         deliveryButton.click();
         waits.waitVisibilityOfElementShort(deliveryPage);
     }
 
-    public void waitPaymentButtonToBeClickable(WebDriver driver) {
+    public void waitPaymentButtonToBeClickable() {
         waits.waitElementToBeClickableShort(paymentButton);
     }
 
-    public void clickPaymentButton(WebDriver driver) {
+    public void clickPaymentButton() {
         paymentButton.click();
         waits.waitVisibilityOfElementShort(paymentPage);
     }
 
-    public void waitContactButtonToBeClickable(WebDriver driver) {
+    public void waitContactButtonToBeClickable() {
         waits.waitElementToBeClickableShort(contactButton);
     }
 
-    public void clickContactButton(WebDriver driver) {
+    public void clickContactButton() {
         contactButton.click();
         waits.waitVisibilityOfElementShort(contactPage);
     }
 
-    public void waitBlogButtonToBeClickable(WebDriver driver) {
+    public void waitBlogButtonToBeClickable() {
         waits.waitElementToBeClickableShort(blogButton);
     }
 
