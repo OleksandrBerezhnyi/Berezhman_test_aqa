@@ -43,7 +43,7 @@ public class LoginPage extends BasePage {
         passwordField.sendKeys(userPassword);
     }
 
-    public void clickOpenLoginPopupButton(WebDriver driver) {
+    public void clickOpenLoginPopupButton() {
         openLoginPopupButton.click();
         waits.waitVisibilityOfElement(usernameField, 3);
     }

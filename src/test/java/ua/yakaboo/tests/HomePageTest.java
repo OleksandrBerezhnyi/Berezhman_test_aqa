@@ -4,17 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.yakaboo.pages.HomePage;
-import utils.Waits;
 
 public class HomePageTest extends BaseTests {
 
     private HomePage homePage;
-    private Waits waits;
 
     @BeforeMethod
     public void initHomePage() {
         homePage = new HomePage(driver);
-        waits = new Waits(driver);
     }
 
     @Test

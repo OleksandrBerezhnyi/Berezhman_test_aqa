@@ -14,12 +14,12 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        jsActions = new JSActions();
+        jsActions = new JSActions(driver);
         waits = new Waits(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public static void clickButtonWithAction(WebDriver driver, WebElement element) {
+    public void clickButtonWithAction(WebElement element) {
         Actions actions = new Actions(driver);
         actions.click(element).build().perform();
     }

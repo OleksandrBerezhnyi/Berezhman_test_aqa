@@ -5,23 +5,20 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.yakaboo.pages.LoginPage;
 import utils.DriverHelper;
-import utils.Waits;
 
 public class LoginTests extends BaseTests {
 
     private LoginPage loginPage;
-    private Waits waits;
 
     @BeforeMethod
     public void initLoginPage() {
         loginPage = new LoginPage(driver);
-        waits = new Waits(driver);
     }
 
     @Test
     public void signInWithValidUser() {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
-        loginPage.clickOpenLoginPopupButton(driver);
+        loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
         loginPage.fillPasswordField("123456");
@@ -32,7 +29,7 @@ public class LoginTests extends BaseTests {
     @Test
     public void signInWithEmptyFields() throws InterruptedException {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
-        loginPage.clickOpenLoginPopupButton(driver);
+        loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.loginButton.click();
         waits.waitAlertPresentShort();
@@ -42,7 +39,7 @@ public class LoginTests extends BaseTests {
     @Test
     public void signInWithEmptyLoginField() throws InterruptedException {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
-        loginPage.clickOpenLoginPopupButton(driver);
+        loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillPasswordField("123456");
         loginPage.loginButton.click();
@@ -53,7 +50,7 @@ public class LoginTests extends BaseTests {
     @Test
     public void signInWithEmptyPasswordField() throws InterruptedException {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
-        loginPage.clickOpenLoginPopupButton(driver);
+        loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
         loginPage.loginButton.click();
@@ -64,7 +61,7 @@ public class LoginTests extends BaseTests {
     @Test
     public void signInWithInvalidCredentials() throws InterruptedException {
         loginPage.waitOpenLoginPopupButtonToBeClickable(driver);
-        loginPage.clickOpenLoginPopupButton(driver);
+        loginPage.clickOpenLoginPopupButton();
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
         loginPage.fillPasswordField("1234567");

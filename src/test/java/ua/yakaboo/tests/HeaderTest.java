@@ -5,17 +5,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.yakaboo.pages.HeaderPage;
 import utils.DriverHelper;
-import utils.Waits;
 
 public class HeaderTest extends BaseTests {
 
     private HeaderPage headerPage;
-    private Waits waits;
 
     @BeforeMethod
     public void initHeaderPage() {
         headerPage = new HeaderPage(driver);
-        waits = new Waits(driver);
     }
 
     @Test
@@ -26,11 +23,11 @@ public class HeaderTest extends BaseTests {
         headerPage.clickCancelButtonOnDialog(driver);
 
         headerPage.waitPromotionsButtonToBeClickable();
-        headerPage.clickPromotionsButtonWithAction(driver);
+        headerPage.clickPromotionsButtonWithAction();
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.discountsPage), "Discounts page does not open");
         driver.navigate().back();
 
-        headerPage.waitAboutUsButtonToBeClickable(driver);
+        headerPage.waitAboutUsButtonToBeClickable();
         headerPage.clickAboutUsButton(driver);
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.aboutUsPage), "About Us page does not open");
         driver.navigate().back();

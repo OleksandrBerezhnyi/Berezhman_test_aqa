@@ -64,8 +64,8 @@ public class HeaderPage extends BasePage {
         waits.waitPresenceOfElementShort(By.className("grv-dialog-host"));
     }
 
-    public void clickPromotionsButtonWithAction(WebDriver driver) {
-        clickButtonWithAction(driver, promotionsButton);
+    public void clickPromotionsButtonWithAction() {
+        clickButtonWithAction(promotionsButton);
         waits.waitVisibilityOfElement(discountsPage, 3);
     }
 
@@ -74,7 +74,7 @@ public class HeaderPage extends BasePage {
         shadowRootElement.findElement(shadowOkButton).click();
     }
 
-    public void waitAboutUsButtonToBeClickable(WebDriver driver) {
+    public void waitAboutUsButtonToBeClickable() {
         waits.waitElementToBeClickableShort(aboutUsButton);
     }
 
