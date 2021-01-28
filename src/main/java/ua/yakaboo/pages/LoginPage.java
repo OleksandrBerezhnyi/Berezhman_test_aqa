@@ -56,7 +56,7 @@ public class LoginPage extends BasePage {
         return loginPopupAlertMessage.getText();
     }
 
-    public void clickLoginButtonWithJS(WebDriver driver) {
+    public void clickLoginButtonWithJS() {
         clickButtonWithJS(driver, loginButton);
         waits.waitVisibilityOfElementShort(profileFirstName);
     }
@@ -65,7 +65,7 @@ public class LoginPage extends BasePage {
         waits.waitElementToBeClickableShort(openLoginPopupButton);
     }
 
-    public void waitLoginPopupAlertMessageToBeVisibility(WebDriver driver) {
+    public void waitLoginPopupAlertMessageToBeVisibility() {
         waits.waitVisibilityOfElementShort(loginPopupAlertMessage);
     }
 }

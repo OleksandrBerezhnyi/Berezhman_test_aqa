@@ -22,7 +22,7 @@ public class LoginTests extends BaseTests {
         Assert.assertTrue(waits.isElementVisibilityShort(loginPage.loginPopup), "login popup is not displayed");
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
         loginPage.fillPasswordField("123456");
-        loginPage.clickLoginButtonWithJS(driver);
+        loginPage.clickLoginButtonWithJS();
         Assert.assertEquals(loginPage.getFirstName(), "Вітаємо, Oleksandr", "User name is not correct");
     }
 
@@ -66,7 +66,7 @@ public class LoginTests extends BaseTests {
         loginPage.fillEmailField("oleksandr.berezhnyi@gravit.io");
         loginPage.fillPasswordField("1234567");
         loginPage.loginButton.click();
-        loginPage.waitLoginPopupAlertMessageToBeVisibility(driver);
+        loginPage.waitLoginPopupAlertMessageToBeVisibility();
         Assert.assertEquals(loginPage.getLoginPopupAlertMessage(), "Невірний логін або пароль.", "Alert message is not correct");
     }
 }
