@@ -12,7 +12,7 @@ public class JSActions {
         this.driver = driver;
     }
 
-    public static void clickButtonWithJS(WebDriver driver, WebElement element) {
+    public void clickButtonWithJS(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }

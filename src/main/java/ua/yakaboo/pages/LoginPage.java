@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static utils.JSActions.clickButtonWithJS;
-
 public class LoginPage extends BasePage {
 
     @FindBy(xpath = ".//a[@class='show-modal-login']")
@@ -57,7 +55,7 @@ public class LoginPage extends BasePage {
     }
 
     public void clickLoginButtonWithJS() {
-        clickButtonWithJS(driver, loginButton);
+        jsActions.clickButtonWithJS(loginButton);
         waits.waitVisibilityOfElementShort(profileFirstName);
     }
 
