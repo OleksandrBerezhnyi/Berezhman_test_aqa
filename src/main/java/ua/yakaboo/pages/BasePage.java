@@ -19,6 +19,7 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
+
     public void clickButtonWithAction(WebElement element) {
         Actions actions = new Actions(driver);
         actions.click(element).build().perform();
