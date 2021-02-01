@@ -14,6 +14,7 @@
         <testng.version>7.3.0</testng.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <webdrivermanager.version>4.2.2</webdrivermanager.version>
+        <cucumber-java.version>6.9.1</cucumber-java.version>
     </properties>
 
     <dependencies>
@@ -38,6 +39,13 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-java.version}</version>
         </dependency>
 
     </dependencies>
