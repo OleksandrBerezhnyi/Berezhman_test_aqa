@@ -1,10 +1,11 @@
-package ua.yakaboo.pages;
+package ua.yakaboo.pages.bdd_solution.bdd_pages.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ua.yakaboo.pages.bdd_solution.bdd_pages.base_page.BasePage;
 
 public class HeaderPage extends BasePage {
 
