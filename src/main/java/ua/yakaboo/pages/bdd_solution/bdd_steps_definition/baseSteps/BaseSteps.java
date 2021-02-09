@@ -1,4 +1,4 @@
-package ua.yakaboo.pages.bdd_solution.bdd_steps_definition.baseStep;
+package ua.yakaboo.pages.bdd_solution.bdd_steps_definition.baseSteps;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -7,11 +7,11 @@ import utils.driver.DriverProvider;
 
 import static utils.PropertyReader.getProperty;
 
-public class BaseStep {
+public class BaseSteps {
     private DriverProvider driverProvider;
     private WebDriver driver;
 
-    public BaseStep(DriverProvider driverProvider) {
+    public BaseSteps(DriverProvider driverProvider) {
         this.driverProvider = driverProvider;
     }
 
