@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/ua/yakaboo/tests/features",
         glue = "bdd_steps_definition",
-        tags = "@SmokeTest"
-)
+        tags = "@SmokeTest")
+
 public class TestRunner {
 }
