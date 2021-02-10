@@ -7,8 +7,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.util.Objects;
 import java.util.Optional;
 
+import static java.lang.String.format;
 import static utils.PropertyReader.getProperty;
 
 public class DriverProvider {
@@ -42,5 +44,25 @@ public class DriverProvider {
             }
             default -> throw new IllegalArgumentException("Unknown browser. Please, edit config.properties");
         }
+    }
+
+    public void quiteDriver() {
+        if (Objects.nonNull(driver))
+            try {
+                driver.manage().deleteAllCookies();
+            } catch (Exception ex) {
+                System.out.printf("An  exception  occurred while cookie deleting: %s%n", ex);
+            }
+        try {
+            driver.close();
+        } catch (Exception ex) {
+            System.out.printf("An  exception  occurred while driver closing: %s%n", ex);
+        }
+        try {
+            driver.quit();
+        } catch (Exception ex) {
+            System.out.printf("An  exception  occurred while cookie deleting: %s%n", ex);
+        }
+        driver = null;
     }
 }

@@ -1,11 +1,11 @@
-package ua.yakaboo.pages.bdd_solution.bdd_steps_definition;
+package ua.yakaboo.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import ua.yakaboo.pages.bdd_solution.bdd_pages.pages.HeaderPage;
+import ua.yakaboo.pages.HeaderPage;
 import utils.DriverHelper;
 import utils.Waits;
 import utils.driver.DriverProvider;
@@ -25,7 +25,6 @@ public class HeaderSteps {
         var headerPage = new HeaderPage(driver);
         Assert.assertTrue(waits.isElementVisibilityShort(headerPage.storeLogo), "Logo is not displayed");
     }
-
 
     @When("User clicks Cancel button on the dialog")
     public void userClicksCancelButtonOnTheDialog() {

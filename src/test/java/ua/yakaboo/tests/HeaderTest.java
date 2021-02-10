@@ -3,7 +3,7 @@ package ua.yakaboo.tests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ua.yakaboo.pages.bdd_solution.bdd_pages.pages.HeaderPage;
+import ua.yakaboo.pages.HeaderPage;
 import utils.DriverHelper;
 
 public class HeaderTest extends BaseTests {

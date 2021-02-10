@@ -1,11 +1,11 @@
-package ua.yakaboo.pages.bdd_solution.bdd_steps_definition;
+package ua.yakaboo.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import ua.yakaboo.pages.bdd_solution.bdd_pages.pages.LoginPage;
+import ua.yakaboo.pages.LoginPage;
 import utils.DriverHelper;
 import utils.Waits;
 import utils.driver.DriverProvider;

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Berezhman_test_project" />
+        <module name="Berezhman_test_aqa" />
       </profile>
     </annotationProcessing>
   </component>

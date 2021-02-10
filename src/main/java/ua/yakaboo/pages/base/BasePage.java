@@ -1,4 +1,4 @@
-package ua.yakaboo.pages.bdd_solution.bdd_pages.base_page;
+package ua.yakaboo.pages.base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
