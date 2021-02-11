@@ -2,7 +2,6 @@ package ua.yakaboo.steps.base;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.WebDriver;
 import utils.driver.DriverProvider;
 
 import static utils.PropertyReader.getProperty;
