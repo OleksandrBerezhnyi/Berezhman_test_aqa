@@ -19,10 +19,10 @@ public class HomePageSteps {
         waits = new Waits(driver);
     }
 
-    @Given("Check that Home page id displayed")
-    public void check_that_home_page_id_displayed() {
+    @Given("Check that Home page is displayed")
+    public void checkThatHomePageIsDisplayed() {
         String title = driver.getTitle();
-        Assert.assertEquals(title, ("Yakaboo — Інтернет-магазин книг, подарунків і дитячих товарів. Купити книги та подарунки по найкращим в Україні цінами."));
+        Assert.assertEquals(title, "Yakaboo — Інтернет-магазин книг, подарунків і дитячих товарів. Купити книги та подарунки по найкращим в Україні цінами.");
     }
 
     @When("User checks {string} search field placeholder")

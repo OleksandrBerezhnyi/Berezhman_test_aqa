@@ -55,19 +55,19 @@ public class LoginSteps {
     @Then("User sees that first name appears in the profile")
     public void userSeesThatFirstNameAppearsInTheProfile() {
         var loginPage = new LoginPage(driver);
-        Assert.assertEquals(loginPage.getFirstName(), "Вітаємо, Oleksandr", "User name is not correct");
+        Assert.assertEquals("User name is not correct", "Вітаємо, Oleksandr", loginPage.getFirstName());
     }
 
     @Then("User sees that Valid message appears")
     public void userSeesThatValidMessageAppears() {
         var loginPage = new LoginPage(driver);
         loginPage.waitLoginPopupAlertMessageToBeVisibility();
-        Assert.assertEquals(loginPage.getLoginPopupAlertMessage(), "Невірний логін або пароль.", "Alert message is not correct");
+        Assert.assertEquals("Alert message is not correct", "Невірний логін або пароль.", loginPage.getLoginPopupAlertMessage());
     }
 
     @Then("User sees that {string} alert message appears")
     public void userSeesThatAlertMessageAppears(String text) {
         waits.waitAlertPresentShort();
-        Assert.assertEquals(DriverHelper.getAlertText(driver), text, "Alert message is not correct");
+        Assert.assertEquals("Alert message is not correct", text, DriverHelper.getAlertText(driver));
     }
 }

@@ -1,9 +1,7 @@
 Feature: Home page
 
-
   Background: Pre-condition
     Given Check that Home page is displayed
-
 
   @SmokeTest
   Scenario: Check that Main Elements are displayed on Home page

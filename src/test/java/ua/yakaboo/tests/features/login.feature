@@ -33,4 +33,3 @@ Feature: Login User
     When  User enters "1234567" into Password field on the popup
     When  User clicks Login button on the popup
     Then  User sees that Valid message appears
-
